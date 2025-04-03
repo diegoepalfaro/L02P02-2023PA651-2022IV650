@@ -6,5 +6,6 @@ namespace L02P02_2023PA651_2022IV650.Models
         public libreriaDbContext(DbContextOptions options) : base(options) { 
         
         }
+        public DbSet<Clientes> Clientes { get; set; }
     }
 }

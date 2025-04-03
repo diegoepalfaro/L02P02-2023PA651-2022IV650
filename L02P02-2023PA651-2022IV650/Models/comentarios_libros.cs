@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace L02P02_2023PA651_2022IV650.Models
 {
@@ -6,7 +7,8 @@ namespace L02P02_2023PA651_2022IV650.Models
     {
         [Key]
         public int Id { get; set; }
-        public int IdLibro { get; set; }
+        public int IdLibro { get; set; } 
+
         [ForeignKey("IdLibro")]
         public Libros Libro { get; set; }
 
