@@ -13,7 +13,6 @@ namespace L02P02_2023PA651_2022IV650.Models
         public int id_autor { get; set; }
         [ForeignKey("id_autor")]
         public Autores autor { get; set; }
-
         public int id_categoria { get; set; }
         [ForeignKey("id_categoria")]
         public Categorias categoria { get; set; }

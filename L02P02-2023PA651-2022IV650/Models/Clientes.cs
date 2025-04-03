@@ -10,7 +10,7 @@ namespace L02P02_2023PA651_2022IV650.Models
         public string apellido { get; set; }
         public string email { get; set; }
         public string direccion { get; set; }
-        public DateTime createdAt { get; set; }
+        public DateTime created_at { get; set; }
 
     }
 }
