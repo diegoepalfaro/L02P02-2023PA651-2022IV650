@@ -7,19 +7,17 @@ namespace L02P02_2023PA651_2022IV650.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-        public string UrlImagen { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public string url_imagen { get; set; }
+        public int id_autor { get; set; }
+        [ForeignKey("id_autor")]
+        public Autores autor { get; set; }
 
-        public int IdAutor { get; set; }
-        [ForeignKey("IdAutor")]
-        public Autores Autor { get; set; }
-
-        public int IdCategoria { get; set; }
-        [ForeignKey("IdCategoria")]
-        public Categorias Categoria { get; set; }
-
-        public decimal Precio { get; set; }
-        public char Estado { get; set; }
+        public int id_categoria { get; set; }
+        [ForeignKey("id_categoria")]
+        public Categorias categoria { get; set; }
+        public decimal precio { get; set; }
+        public char estado { get; set; }
     }
 }
