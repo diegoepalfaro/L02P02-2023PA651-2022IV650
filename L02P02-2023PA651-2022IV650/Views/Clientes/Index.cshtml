@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Registro de Cliente";
+}
+
+<div class="container">
+    <h2 class="mb-4">Registro de Cliente</h2>
+
+    @if (TempData["Mensaje"] != null)
+    {
+        <div class="alert alert-success">@TempData["Mensaje"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+
+    <div class="card p-4 shadow">
+        @using (Html.BeginForm("GuardarCliente", "Clientes", FormMethod.Post))
+        {
+            <div class="form-group row mb-3">
+                <div class="col-sm-2">
+                    <label>Nombre</label>
+                </div>
+                <div class="col-sm-4">
+                    @Html.TextBox("Nombre", "", new { @class = "form-control" })
+                </div>
+                <div class="col-md-6">
+                    @Html.Label("Apellido", "Apellido", new { @class = "form-label" })
+                    @Html.TextBox("Apellido", null, new { @class = "form-control", placeholder = "Ingrese su apellido" })
+                </div>
+            </div>
+
+            <div class="mb-3">
+                @Html.Label("Email", "Email", new { @class = "form-label" })
+                @Html.TextBox("Email", null, new { @class = "form-control", type = "email", placeholder = "Ingrese su email" })
+            </div>
+
+            <div class="mb-3">
+                @Html.Label("Direccion", "Dirección", new { @class = "form-label" })
+                @Html.TextBox("Direccion", null, new { @class = "form-control", placeholder = "Ingrese su dirección" })
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">Iniciar Venta</button>
+        }
+    </div>
+</div>

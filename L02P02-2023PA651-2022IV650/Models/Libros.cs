@@ -17,6 +17,6 @@ namespace L02P02_2023PA651_2022IV650.Models
         [ForeignKey("id_categoria")]
         public Categorias categoria { get; set; }
         public decimal precio { get; set; }
-        public char estado { get; set; }
+        public string? estado { get; set; }
     }
 }

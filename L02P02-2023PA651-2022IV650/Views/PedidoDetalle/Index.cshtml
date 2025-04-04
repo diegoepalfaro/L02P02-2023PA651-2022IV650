@@ -1,0 +1,50 @@
+﻿@model List<L02P02_2023PA651_2022IV650.Models.Libros>
+@{
+    ViewData["Title"] = "Catálogo de Libros";
+    int pedidoId = ViewBag.PedidoId;
+    decimal totalPedido = ViewBag.TotalPedido;
+}
+
+<div class="container">
+    <h1 class="mb-4">Libros</h1>
+
+    <div class="row">
+        @foreach (var libro in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">@libro.nombre</h5>
+                        
+                        <p class="card-text text-success">Precio: @libro.precio.ToString("C")</p>
+                    </div>
+                    <div class="card-footer bg-white">
+                        <form asp-action="AgregarAlCarrito" method="post">
+                            <input type="hidden" name="libroId" value="@libro.Id" />
+                            <input type="hidden" name="pedidoId" value="@pedidoId" />
+                            <button type="submit" class="btn btn-primary w-100">Agregar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header bg-light">
+            <h2 class="h5 mb-0">Total Libros</h2>
+        </div>
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="h6">Total (USD)</span>
+                <span class="h4 text-success">@totalPedido.ToString("C")</span>
+            </div>
+        </div>
+        <div class="card-footer">
+            <form asp-action="CompletarPedido" method="post">
+                <input type="hidden" name="pedidoId" value="@pedidoId" />
+                <button type="submit" class="btn btn-success w-100">Completar</button>
+            </form>
+        </div>
+    </div>
+</div>
